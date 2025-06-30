@@ -8,12 +8,12 @@ This project is an automated test suite for SauceDemo, created to showcase my sk
 
 ## 🔧 Tecnologías Utilizadas
 
-- **Java** – Lenguaje principal del proyecto
-- **Selenium WebDriver** – Framework para automatización de navegadores
-- **JUnit 5** – Framework de testing usado para ejecutar las pruebas
-- **Maven** – Gestión de dependencias y ciclo de vida del proyecto
-- **WebDriverManager** – Gestión automática de drivers para Selenium
-- **Page Object Model (POM)** – Patrón de diseño usado para organizar el código
+- **Java** – Lenguaje principal del proyecto  
+- **Selenium WebDriver** – Framework para automatización de navegadores  
+- **JUnit 5** – Framework de testing usado para ejecutar las pruebas  
+- **Maven** – Gestión de dependencias y ciclo de vida del proyecto  
+- **WebDriverManager** – Gestión automática de drivers para Selenium  
+- **Page Object Model (POM)** – Patrón de diseño usado para organizar el código  
 - **GitHub Actions** *(próximamente)* – Para integración continua (CI)
 
 ---
