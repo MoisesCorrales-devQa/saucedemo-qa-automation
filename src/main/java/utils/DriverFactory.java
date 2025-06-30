@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverFactory {
+
     public static WebDriver createInstance(String browser) {
         switch (browser.toLowerCase()) {
             case "firefox":
@@ -18,4 +19,5 @@ public class DriverFactory {
         }
     }
 }
+
 

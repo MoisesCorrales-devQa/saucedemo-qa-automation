@@ -1,25 +1,22 @@
 package tests;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import utils.ConfigReader;
 import utils.DriverFactory;
 
 public abstract class BaseTest {
 
     protected WebDriver driver;
 
-    @BeforeAll
-    static void setupDriverManager() {
-        WebDriverManager.chromedriver().setup();
-    }
-
     @BeforeEach
     void launchBrowser() {
-        driver = DriverFactory.createInstance("chrome");
+        String browser = ConfigReader.get("browser");
+        String baseUrl = ConfigReader.get("baseUrl");
+
+        driver = DriverFactory.createInstance(browser);
         driver.manage().window().maximize();
-        driver.get("https://www.saucedemo.com/");
+        driver.get(baseUrl);
     }
 
     @AfterEach
