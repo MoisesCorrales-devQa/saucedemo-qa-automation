@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 public class VisualHelper {
 
-    private static final boolean ENABLE_DEMO_MODE = true; // puedes desactivarlo en producción
+    private static final boolean ENABLE_DEMO_MODE = Boolean.parseBoolean(ConfigReader.get("demo"));; // puedes desactivarlo en producción
 
     public static void pause(long millis) {
         if (ENABLE_DEMO_MODE) {

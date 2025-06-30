@@ -5,13 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f834490f-126b-4455-9526-19e4d3231e17" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/ConfigReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/model/ProductItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/suites/SmokeTestSuite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/InventoryTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/test-cases.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/test-cases.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/DriverFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/DriverFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/VisualHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/VisualHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/InventoryPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/InventoryPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/BaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,8 +54,17 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.InventoryTests.TC006_visibilidadCamposItems.executor": "Run",
+    "JUnit.InventoryTests.TC007_1_ordenamientoProductosA_Z.executor": "Run",
+    "JUnit.InventoryTests.TC007_2_ordenamientoProductosZ_A.executor": "Run",
+    "JUnit.InventoryTests.TC008_1_ordenamientoProductosPrecioAscendente.executor": "Run",
+    "JUnit.InventoryTests.TC008_2_ordenamientoProductosPrecioDescendente.executor": "Run",
+    "JUnit.LoginTests.TC001_loginCorrecto.executor": "Run",
     "JUnit.LoginTests.TC001_loginIncorrecto.executor": "Run",
+    "JUnit.LoginTests.TC002_loginIncorrecto.executor": "Run",
     "JUnit.LoginTests.TC003_loginIncorrecto.executor": "Run",
+    "JUnit.LoginTests.TC004_loginUsuarioVacio.executor": "Run",
+    "JUnit.LoginTests.TC005_loginContrasenyaVacia.executor": "Run",
     "JUnit.LoginTests.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -68,8 +80,56 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.LoginTests">
-    <configuration name="LoginTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.SmokeTestSuite">
+    <configuration name="InventoryTests.TC007_2_ordenamientoProductosZ_A" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="saucedemo-qa-automation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.InventoryTests" />
+      <option name="METHOD_NAME" value="TC007_2_ordenamientoProductosZ_A" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InventoryTests.TC008_1_ordenamientoProductosPrecioAscendente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="saucedemo-qa-automation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.InventoryTests" />
+      <option name="METHOD_NAME" value="TC008_1_ordenamientoProductosPrecioAscendente" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InventoryTests.TC008_2_ordenamientoProductosPrecioDescendente" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="saucedemo-qa-automation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.InventoryTests" />
+      <option name="METHOD_NAME" value="TC008_2_ordenamientoProductosPrecioDescendente" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginTests.TC001_loginCorrecto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="saucedemo-qa-automation" />
       <extension name="coverage">
         <pattern>
@@ -79,48 +139,34 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.LoginTests" />
+      <option name="METHOD_NAME" value="TC001_loginCorrecto" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SmokeTestSuite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="saucedemo-qa-automation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="suites.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="suites" />
+      <option name="MAIN_CLASS_NAME" value="suites.SmokeTestSuite" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginTests.TC001_loginIncorrecto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="saucedemo-qa-automation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.LoginTests" />
-      <option name="METHOD_NAME" value="TC001_loginIncorrecto" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginTests.TC003_loginIncorrecto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="saucedemo-qa-automation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.LoginTests" />
-      <option name="METHOD_NAME" value="TC003_loginIncorrecto" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LoginTests" />
-        <item itemvalue="JUnit.LoginTests.TC003_loginIncorrecto" />
-        <item itemvalue="JUnit.LoginTests.TC001_loginIncorrecto" />
+        <item itemvalue="JUnit.SmokeTestSuite" />
+        <item itemvalue="JUnit.LoginTests.TC001_loginCorrecto" />
+        <item itemvalue="JUnit.InventoryTests.TC008_2_ordenamientoProductosPrecioDescendente" />
+        <item itemvalue="JUnit.InventoryTests.TC008_1_ordenamientoProductosPrecioAscendente" />
+        <item itemvalue="JUnit.InventoryTests.TC007_2_ordenamientoProductosZ_A" />
       </list>
     </recent_temporary>
   </component>
@@ -142,7 +188,7 @@
       <updated>1751302986877</updated>
       <workItem from="1751302988042" duration="734000" />
       <workItem from="1751303731900" duration="1437000" />
-      <workItem from="1751305244105" duration="4870000" />
+      <workItem from="1751305244105" duration="9444000" />
     </task>
     <servers />
   </component>

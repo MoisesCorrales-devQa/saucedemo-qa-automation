@@ -19,10 +19,11 @@ public class LoginPage {
     private By loginButton = By.id("login-button");
     private By errorMessage = By.cssSelector("[data-test='error']");
 
-    //Errormessages
+    //Error Messages
     private String INVALID_USER = "Epic sadface: Username and password do not match any user in this service";
     private String LOCKED_USER = "Epic sadface: Sorry, this user has been locked out.";
-
+    private String NO_USER = "Epic sadface: Username is required";
+    private String NO_PSSWD = "Epic sadface: Password is required";
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -54,9 +55,16 @@ public class LoginPage {
         return isErrorTextVisible(LOCKED_USER);
     }
 
+    public boolean isNoUserErrorVisible() {
+        return isErrorTextVisible(NO_USER);
+    }
+
+    public boolean isNoPsswdErrorVisible() {
+        return isErrorTextVisible(NO_PSSWD);
+    }
+
     public boolean isErrorTextVisible(String errorText) {
         WebElement title = driver.findElement(errorMessage);
-        System.out.println(title.getText());
 
         return title.getText().equals(errorText);
     }
