@@ -4,9 +4,12 @@ import model.ProductItem;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.VisualHelper;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,34 +34,35 @@ public class InventoryPage {
     private final By cartIcon = By.cssSelector("[data-test='shopping-cart-link']");
 
     public boolean isTitleVisible() {
-        WebElement title = driver.findElement(inventoryTittle);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement title = wait.until(ExpectedConditions.visibilityOfElementLocated(inventoryTittle));
         return title.isDisplayed() && title.getText().equals("Products");
     }
 
     public void selectOrder(String criterioValor) {
-        WebElement dropdown = driver.findElement(orderSelector);
-        VisualHelper.highlight(driver, dropdown); // opcional, para ver el efecto
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(orderSelector));
+        VisualHelper.highlight(driver, dropdown);
         Select select = new Select(dropdown);
-        select.selectByValue(criterioValor); // ejemplo: "az", "za", "lohi", "hilo"
+        select.selectByValue(criterioValor);
     }
 
     public List<ProductItem> getVisibleProducts() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(inventoryItem));
         List<WebElement> items = driver.findElements(inventoryItem);
         List<ProductItem> products = new ArrayList<>();
-
         for (WebElement item : items) {
             VisualHelper.highlight(driver, item);
-
             String name = item.findElement(itemName).getText();
             String description = item.findElement(itemDesc).getText();
             String price = item.findElement(itemPrice).getText();
-
             products.add(new ProductItem(name, description, price));
-
             VisualHelper.pause(1000);
         }
         return products;
     }
+
 
     public List<ProductItem> addItemsToCart(int amount) {
         List<WebElement> items = driver.findElements(inventoryItem);
@@ -85,20 +89,18 @@ public class InventoryPage {
     }
 
     public boolean checkCartIconBadge(int amount) {
-
-        WebElement badge = driver.findElement(this.badge);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement badge = wait.until(ExpectedConditions.visibilityOfElementLocated(this.badge));
         String badgeText = badge.getText();
         int itemCount = Integer.parseInt(badgeText);
-
         return itemCount == amount;
     }
 
     public void navigateToCart() {
-        WebElement icon =  driver.findElement(cartIcon);
-
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement icon = wait.until(ExpectedConditions.elementToBeClickable(cartIcon));
         VisualHelper.highlight(driver, icon);
         icon.click();
-        VisualHelper.pause(500);
     }
 
 }

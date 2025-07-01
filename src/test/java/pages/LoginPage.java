@@ -4,7 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.VisualHelper;
+
+import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -30,17 +34,19 @@ public class LoginPage {
     }
 
     public void loginAs(String username, String password) {
-        WebElement userField = driver.findElement(usernameInput);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        WebElement userField = wait.until(ExpectedConditions.visibilityOfElementLocated(usernameInput));
         VisualHelper.highlight(driver, userField);
         userField.sendKeys(username);
         VisualHelper.pause(500);
 
-        WebElement passField = driver.findElement(passwordInput);
+        WebElement passField = wait.until(ExpectedConditions.visibilityOfElementLocated(passwordInput));
         VisualHelper.highlight(driver, passField);
         passField.sendKeys(password);
         VisualHelper.pause(500);
 
-        WebElement loginBtn = driver.findElement(loginButton);
+        WebElement loginBtn = wait.until(ExpectedConditions.elementToBeClickable(loginButton));
         VisualHelper.highlight(driver, loginBtn);
         loginBtn.click();
 
@@ -64,8 +70,8 @@ public class LoginPage {
     }
 
     public boolean isErrorTextVisible(String errorText) {
-        WebElement title = driver.findElement(errorMessage);
-
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebElement title = wait.until(ExpectedConditions.visibilityOfElementLocated(errorMessage));
         return title.getText().equals(errorText);
     }
 

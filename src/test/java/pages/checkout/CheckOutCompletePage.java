@@ -3,6 +3,10 @@ package pages.checkout;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class CheckOutCompletePage {
 
@@ -17,12 +21,11 @@ public class CheckOutCompletePage {
 
 
     public boolean checkCompleteHeaderAndIcon() {
-        WebElement title = driver.findElement(completeHeader);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement title = wait.until(ExpectedConditions.visibilityOfElementLocated(completeHeader));
         boolean correctText = title.getText().equals("Thank you for your order!");
-
-        WebElement iconElement = driver.findElement(icon);
+        WebElement iconElement = wait.until(ExpectedConditions.visibilityOfElementLocated(icon));
         boolean iconVisible = iconElement.isDisplayed();
-
         return correctText && iconVisible;
     }
 }
