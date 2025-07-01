@@ -31,13 +31,17 @@ public class InventoryTests extends BaseTest {
         inventoryPage = new InventoryPage(driver);
     }
 
+    @BeforeEach
+    void login(){
+        //PRECONDICION: Login correcto
+        loginPage.loginAs("standard_user", "secret_sauce");
+    }
+
     @Test
     @DisplayName("TC006 - Validar nombre, descripción y precio")
     void TC006_visibilidadCamposItems() {
 
         //STEP 1. Acceder al inventario
-
-        loginPage.loginAs("standard_user", "secret_sauce");
 
         // STEP 2. Revisar nombre, descripción y precio por ítem
 
@@ -57,10 +61,6 @@ public class InventoryTests extends BaseTest {
     @Test
     @DisplayName("TC007.1 - Ordenamiento de productos A-Z")
     void TC007_1_ordenamientoProductosA_Z() {
-
-        //PRECONDICION
-
-        loginPage.loginAs("standard_user", "secret_sauce");
 
         //STEP 1. Abrir menú de ordenamiento
 
@@ -88,10 +88,6 @@ public class InventoryTests extends BaseTest {
     @DisplayName("TC007.2 - Ordenamiento de productos Z-A")
     void TC007_2_ordenamientoProductosZ_A() {
 
-        //PRECONDICION
-
-        loginPage.loginAs("standard_user", "secret_sauce");
-
         //STEP 1. Abrir menú de ordenamiento
 
         // STEP 2. Seleccionar Z-A
@@ -118,10 +114,6 @@ public class InventoryTests extends BaseTest {
     @Test
     @DisplayName("TC008.1 - Ordenamiento de productos precio ascendente")
     void TC008_1_ordenamientoProductosPrecioAscendente() {
-
-        //PRECONDICION
-
-        loginPage.loginAs("standard_user", "secret_sauce");
 
         //STEP 1. Abrir menú de ordenamiento
 
@@ -156,10 +148,6 @@ public class InventoryTests extends BaseTest {
     @Test
     @DisplayName("TC008.2 - Ordenamiento de productos precio descendente")
     void TC008_2_ordenamientoProductosPrecioDescendente() {
-
-        //PRECONDICION
-
-        loginPage.loginAs("standard_user", "secret_sauce");
 
         //STEP 1. Abrir menú de ordenamiento
 

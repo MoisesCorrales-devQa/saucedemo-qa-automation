@@ -1,9 +1,9 @@
 package model;
 
 public class ProductItem {
-    private String name;
-    private String description;
-    private String price;
+    protected  String name;
+    protected  String description;
+    protected  String price;
 
     public ProductItem(String name, String description, String price) {
         this.name = name;
