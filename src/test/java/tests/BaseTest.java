@@ -2,12 +2,13 @@ package tests;
 
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
-import utils.ConfigReader;
-import utils.DriverFactory;
+import utils.BrowserInfo;
+import utils.*;
 
 public abstract class BaseTest {
 
     protected WebDriver driver;
+    private static boolean environmentWritten = false;
 
     @BeforeEach
     void launchBrowser() {
@@ -15,9 +16,16 @@ public abstract class BaseTest {
         String baseUrl = ConfigReader.get("baseUrl");
 
         driver = DriverFactory.createInstance(browser);
+
         driver.manage().window().maximize();
         driver.get(baseUrl);
+
+        if (!environmentWritten) {
+            EnvironmentWriter.write(driver);
+            environmentWritten = true;
+        }
     }
+
 
     @AfterEach
     void closeBrowser() {

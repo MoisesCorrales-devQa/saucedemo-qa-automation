@@ -28,6 +28,8 @@ public class InventoryPage {
     private final By itemName = By.className("inventory_item_name");
     private final By itemDesc = By.className("inventory_item_desc");
     private final By itemPrice = By.className("inventory_item_price");
+    private final By itemIcon = By.className("inventory_item_img");
+
 
     private final By button = By.cssSelector("button");
     private final By badge = By.cssSelector("[data-test='shopping-cart-badge']");
@@ -102,5 +104,29 @@ public class InventoryPage {
         VisualHelper.highlight(driver, icon);
         icon.click();
     }
+
+    private String navigateToItem(int position, By clickableSelector) {
+        WebElement item = driver.findElements(inventoryItem).get(position);
+        VisualHelper.highlight(driver, item);
+
+        WebElement clickableElement = item.findElement(clickableSelector);
+        String name = item.findElement(itemName).getText();
+
+        VisualHelper.pause(500);
+
+        clickableElement.click();
+
+        VisualHelper.pause(500);
+        return name;
+    }
+
+    public String navigateToItemFromImage(int position) {
+        return navigateToItem(position, itemIcon);
+    }
+
+    public String navigateToItemFromTittle(int position) {
+        return navigateToItem(position, itemName);
+    }
+
 
 }

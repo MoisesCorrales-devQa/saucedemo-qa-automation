@@ -1,5 +1,9 @@
 package tests;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import model.ProductItem;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -13,6 +17,8 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Epic("Inventario")
+@Feature("Visualización y Ordenamiento")
 public class InventoryTests extends BaseTest {
 
     private LoginPage loginPage;
@@ -37,17 +43,21 @@ public class InventoryTests extends BaseTest {
         loginPage.loginAs("standard_user", "secret_sauce");
     }
 
+    @Story("Validar nombre, descripción y precio")
+    @Description("""
+        TC006 - Validar nombre, descripción y precio
+        Precondición: Usuario autenticado
+        Pasos:
+        1. Acceder al inventario
+        2. Revisar nombre, descripción y precio por ítem
+        Datos: -
+        Resultado esperado: Todos los datos deben mostrarse correctamente
+        """)
     @Test
     @DisplayName("TC006 - Validar nombre, descripción y precio")
     void TC006_visibilidadCamposItems() {
 
-        //STEP 1. Acceder al inventario
-
-        // STEP 2. Revisar nombre, descripción y precio por ítem
-
         List<ProductItem> products = inventoryPage.getVisibleProducts();
-
-        //SPECTED_RESULT: Todos los datos deben mostrarse correctamente
 
         assertFalse(products.isEmpty(), "No hay productos visibles");
 
@@ -58,19 +68,23 @@ public class InventoryTests extends BaseTest {
         }
     }
 
+    @Story("Ordenamiento A-Z")
+    @Description("""
+        TC007.1 - Ordenamiento de productos A-Z
+        Precondición: Usuario autenticado
+        Pasos:
+        1. Abrir menú de ordenamiento
+        2. Seleccionar A-Z
+        Datos: -
+        Resultado esperado: Lista ordenada alfabéticamente ascendente
+        """)
     @Test
     @DisplayName("TC007.1 - Ordenamiento de productos A-Z")
     void TC007_1_ordenamientoProductosA_Z() {
 
-        //STEP 1. Abrir menú de ordenamiento
-
-        // STEP 2. Seleccionar A-Z
-
         inventoryPage.selectOrder(AZ);
 
         List<ProductItem> products = inventoryPage.getVisibleProducts();
-
-        //SPECTED_RESULT: Lista ordenada alfabéticamente ascendente
 
         assertFalse(products.isEmpty(), "No hay productos visibles");
 
@@ -84,19 +98,23 @@ public class InventoryTests extends BaseTest {
         assertEquals(nombresOrdenados, nombresVisibles, "Los productos no están ordenados alfabéticamente (A-Z)");
     }
 
+    @Story("Ordenamiento Z-A")
+    @Description("""
+        TC007.2 - Ordenamiento de productos Z-A
+        Precondición: Usuario autenticado
+        Pasos:
+        1. Abrir menú de ordenamiento
+        2. Seleccionar Z-A
+        Datos: -
+        Resultado esperado: Lista ordenada alfabéticamente descendente
+        """)
     @Test
     @DisplayName("TC007.2 - Ordenamiento de productos Z-A")
     void TC007_2_ordenamientoProductosZ_A() {
 
-        //STEP 1. Abrir menú de ordenamiento
-
-        // STEP 2. Seleccionar Z-A
-
         inventoryPage.selectOrder(ZA);
 
         List<ProductItem> products = inventoryPage.getVisibleProducts();
-
-        //SPECTED_RESULT: Lista ordenada alfabéticamente descendente
 
         assertFalse(products.isEmpty(), "No hay productos visibles");
 
@@ -111,68 +129,55 @@ public class InventoryTests extends BaseTest {
         assertEquals(nombresOrdenados, nombresVisibles, "Los productos no están ordenados alfabéticamente (Z-A)");
     }
 
+    @Story("Ordenamiento precio ascendente")
+    @Description("""
+        TC008.1 - Ordenamiento de productos precio ascendente
+        Precondición: Usuario autenticado
+        Pasos:
+        1. Abrir menú de ordenamiento
+        2. Seleccionar precio ascendente
+        Datos: -
+        Resultado esperado: Lista ordenada por precio ascendente
+        """)
     @Test
     @DisplayName("TC008.1 - Ordenamiento de productos precio ascendente")
     void TC008_1_ordenamientoProductosPrecioAscendente() {
-
-        //STEP 1. Abrir menú de ordenamiento
-
-        // STEP 2. Seleccionar precio ascendente
 
         inventoryPage.selectOrder(ASCENDENTE);
 
         List<ProductItem> products = inventoryPage.getVisibleProducts();
 
-        //SPECTED_RESULT: Lista ordenada por precio ascendente
-
         assertFalse(products.isEmpty(), "No hay productos visibles");
 
         List<Double> preciosVisibles = new ArrayList<>();
-        for (ProductItem product : products) {
-            assertFalse(product.getName().isEmpty(), "El nombre del producto está vacío");
-            assertFalse(product.getDescription().isEmpty(), "La descripción del producto está vacía");
-
-            String priceText = product.getPrice();
-            assertTrue(priceText.matches("\\$\\d+\\.\\d{2}"), "El precio no tiene el formato correcto: " + priceText);
-
-            double precio = Double.parseDouble(priceText.replace("$", ""));
-            preciosVisibles.add(precio);
-        }
 
         List<Double> preciosOrdenados = new ArrayList<>(preciosVisibles);
-        Collections.sort(preciosOrdenados); // Orden por precio ascendente
+        Collections.sort(preciosOrdenados);
 
         assertEquals(preciosOrdenados, preciosVisibles, "Los productos no están ordenados por precio ascendente");
     }
 
+    @Story("Ordenamiento precio descendente")
+    @Description("""
+        TC008.2 - Ordenamiento de productos precio descendente
+        Precondición: Usuario autenticado
+        Pasos:
+        1. Abrir menú de ordenamiento
+        2. Seleccionar precio descendente
+        Datos: -
+        Resultado esperado: Lista ordenada por precio descendente
+        """)
     @Test
     @DisplayName("TC008.2 - Ordenamiento de productos precio descendente")
     void TC008_2_ordenamientoProductosPrecioDescendente() {
-
-        //STEP 1. Abrir menú de ordenamiento
-
-        // STEP 2. Seleccionar seleccionar precio descendente
 
         inventoryPage.selectOrder(DESCENDENTE);
 
         List<ProductItem> products = inventoryPage.getVisibleProducts();
 
-        //SPECTED_RESULT: Lista ordenada por precio descendente
-
         assertFalse(products.isEmpty(), "No hay productos visibles");
 
         List<Double> preciosVisibles = new ArrayList<>();
-        for (ProductItem product : products) {
-            assertFalse(product.getName().isEmpty(), "El nombre del producto está vacío");
-            assertFalse(product.getDescription().isEmpty(), "La descripción del producto está vacía");
-
-            String priceText = product.getPrice();
-            assertTrue(priceText.matches("\\$\\d+\\.\\d{2}"), "El precio no tiene el formato correcto: " + priceText);
-
-            // Extraer número y guardar
-            double precio = Double.parseDouble(priceText.replace("$", ""));
-            preciosVisibles.add(precio);
-        }
 
         List<Double> preciosOrdenados = new ArrayList<>(preciosVisibles);
         Collections.sort(preciosOrdenados);

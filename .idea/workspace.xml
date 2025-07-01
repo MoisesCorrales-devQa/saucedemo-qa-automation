@@ -5,12 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f834490f-126b-4455-9526-19e4d3231e17" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/BrowserInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/EnvironmentWriter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/ItemDetailPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/NavigationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/test-cases.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/test-cases.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saucedemo-qa-automation/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saucedemo-qa-automation/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saucedemo-qa-automation/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/DriverFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/DriverFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/CartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/CartPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/InventoryPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/InventoryPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/checkout/CheckOutCompletePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/checkout/CheckOutCompletePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/suites/SmokeTestSuite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/suites/SmokeTestSuite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/CartTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CartTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/CheckOutTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CheckOutTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/InventoryTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/InventoryTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,8 +81,16 @@
     "JUnit.LoginTests.TC004_loginUsuarioVacio.executor": "Run",
     "JUnit.LoginTests.TC005_loginContrasenyaVacia.executor": "Run",
     "JUnit.LoginTests.executor": "Run",
+    "JUnit.NavigationTests.TC020_navegarCarritoDesdeInventario.executor": "Run",
+    "JUnit.NavigationTests.TC021_volverInventarioDesdeCarrito.executor": "Run",
+    "JUnit.NavigationTests.TC022_2_navegarDetallePorImagen.executor": "Run",
+    "JUnit.NavigationTests.executor": "Run",
     "JUnit.SmokeTestSuite.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "Maven.saucedemo-qa-automation [allure:serve].executor": "Run",
+    "Maven.saucedemo-qa-automation [clean,test...].executor": "Run",
+    "Maven.saucedemo-qa-automation [clean,test].executor": "Run",
+    "Maven.saucedemo-qa-automation [run,test].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
@@ -83,8 +104,19 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.SmokeTestSuite">
-    <configuration name="CartTests.TC010_VerificarProdcutosCarrito" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn run test" />
+      <command value="mvn clean test" />
+      <command value="mvn clean test -Dtest=LoginTests" />
+      <command value="mvn clean test -Dtest=LoginTests -Dallure.results.directory=target/reports-allure" />
+      <command value="mvn clean test -Dtest=LoginTests -Dallure.results.directory=target/allure-results" />
+      <command value="mvn allure:serve" />
+      <command value="allure serve target/allure-results" />
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.NavigationTests">
+    <configuration name="NavigationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="saucedemo-qa-automation" />
       <extension name="coverage">
         <pattern>
@@ -93,14 +125,29 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.CartTests" />
-      <option name="METHOD_NAME" value="TC010_VerificarProdcutosCarrito" />
+      <option name="MAIN_CLASS_NAME" value="tests.NavigationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NavigationTests.TC020_navegarCarritoDesdeInventario" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="saucedemo-qa-automation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.NavigationTests" />
+      <option name="METHOD_NAME" value="TC020_navegarCarritoDesdeInventario" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CartTests.TC010_visibilidadCamposCarrito" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NavigationTests.TC021_volverInventarioDesdeCarrito" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="saucedemo-qa-automation" />
       <extension name="coverage">
         <pattern>
@@ -109,14 +156,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.CartTests" />
-      <option name="METHOD_NAME" value="TC010_visibilidadCamposCarrito" />
+      <option name="MAIN_CLASS_NAME" value="tests.NavigationTests" />
+      <option name="METHOD_NAME" value="TC021_volverInventarioDesdeCarrito" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CartTests.TC011_VerificarProdctosEliminados" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NavigationTests.TC022_2_navegarDetallePorImagen" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="saucedemo-qa-automation" />
       <extension name="coverage">
         <pattern>
@@ -125,24 +172,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.CartTests" />
-      <option name="METHOD_NAME" value="TC011_VerificarProdctosEliminados" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CheckOutTests.TC012_flujo_de_compra_completo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="saucedemo-qa-automation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.CheckOutTests" />
-      <option name="METHOD_NAME" value="TC012_flujo_de_compra_completo" />
+      <option name="MAIN_CLASS_NAME" value="tests.NavigationTests" />
+      <option name="METHOD_NAME" value="TC022_2_navegarDetallePorImagen" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -165,11 +196,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.NavigationTests" />
+        <item itemvalue="JUnit.NavigationTests.TC022_2_navegarDetallePorImagen" />
+        <item itemvalue="JUnit.NavigationTests.TC021_volverInventarioDesdeCarrito" />
+        <item itemvalue="JUnit.NavigationTests.TC020_navegarCarritoDesdeInventario" />
         <item itemvalue="JUnit.SmokeTestSuite" />
-        <item itemvalue="JUnit.CheckOutTests.TC012_flujo_de_compra_completo" />
-        <item itemvalue="JUnit.CartTests.TC011_VerificarProdctosEliminados" />
-        <item itemvalue="JUnit.CartTests.TC010_VerificarProdcutosCarrito" />
-        <item itemvalue="JUnit.CartTests.TC010_visibilidadCamposCarrito" />
       </list>
     </recent_temporary>
   </component>
@@ -193,11 +224,27 @@
       <workItem from="1751303731900" duration="1437000" />
       <workItem from="1751305244105" duration="9444000" />
       <workItem from="1751374633500" duration="10491000" />
-      <workItem from="1751385953996" duration="3395000" />
+      <workItem from="1751385953996" duration="4664000" />
+      <workItem from="1751399651613" duration="778000" />
+      <workItem from="1751400436897" duration="750000" />
+      <workItem from="1751401196348" duration="711000" />
+      <workItem from="1751401912784" duration="1836000" />
+      <workItem from="1751403774792" duration="3782000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/tests/LoginTests.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

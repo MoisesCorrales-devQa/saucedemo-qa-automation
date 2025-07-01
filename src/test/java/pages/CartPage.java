@@ -22,6 +22,8 @@ public class CartPage {
     }
 
     //SELECTORS
+    private final By cartTitle = By.cssSelector("[data-test='title']");
+
     private final By cartItem = By.className("cart_item");
     private final By cartItemName = By.className("inventory_item_name");
     private final By cartItemDesc = By.className("inventory_item_desc");
@@ -68,5 +70,11 @@ public class CartPage {
         checkoutBtn.click();
 
         VisualHelper.pause(500);
+    }
+
+    public boolean isTitleVisible() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement title = wait.until(ExpectedConditions.visibilityOfElementLocated(cartTitle));
+        return title.isDisplayed() && title.getText().equals("Your Cart");
     }
 }

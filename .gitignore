@@ -12,6 +12,11 @@ target/
 *.iml
 *.ipr
 
+# Allure report and results
+allure-report/
+allure-results/
+.allure/
+
 ### Eclipse ###
 .apt_generated
 .classpath

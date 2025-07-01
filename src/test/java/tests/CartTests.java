@@ -1,5 +1,9 @@
 package tests;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import model.CartItem;
 import model.ProductItem;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,6 +17,8 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@Epic("Carrito")
+@Feature("Gestión de Carrito")
 public class CartTests extends BaseTest {
 
     private LoginPage loginPage;
@@ -28,62 +34,73 @@ public class CartTests extends BaseTest {
         loginPage.loginAs("standard_user", "secret_sauce");
     }
 
+    @Story("Añadir productos al carrito")
+    @Description("""
+        TC009 - Añadir productos al carrito
+        Precondición: Usuario autenticado
+        Pasos:
+        1. Acceder al inventario
+        2. Clic en "Add to cart" en uno o más productos
+        Datos: -
+        Resultado esperado: El ícono del carrito refleja la cantidad
+        """)
     @Test
     @DisplayName("TC009 - Añadir productos al carrito")
     void TC009_cantidadIconoCarrito() {
 
-        //STEPS
-        //1. Acceder al inventario | 2. Clic en "Add to cart" en uno o más productos
-
         final int amount = 3;
 
         inventoryPage.addItemsToCart(amount);
-
-        //SPECTED_RESULT: El ícono del carrito refleja la cantidad
 
         boolean validateAmount = inventoryPage.checkCartIconBadge(amount);
 
         assertTrue(validateAmount, "El numero del carrito no se correspodnde con la cantidad añadida");
     }
 
+    @Story("Verificar productos en el carrito")
+    @Description("""
+        TC010 - Verificar productos en el carrito
+        Precondición: Producto añadido previamente
+        Pasos:
+        1. Clic en ícono del carrito
+        2. Verificar nombre y cantidad del producto
+        Datos: -
+        Resultado esperado: Producto(s) añadido(s) listados correctamente
+        """)
     @Test
     @DisplayName("TC010 - Verificar productos en el carrito")
     void TC010_VerificarProdctosCarrito() {
 
-        //PRECONDICION: Items añadidos al carrito
-
         List<ProductItem> addedItems = inventoryPage.addItemsToCart(3);
-
-        //STEP 1. Clic en icono del carrito
 
         inventoryPage.navigateToCart();
 
-        //STEP 2. Verificar nombre y cantidad del producto
-
         List<CartItem> products = cartPage.getCartItems();
-
-        //SPECTED_RESULT: Todos los datos deben mostrarse correctamente
 
         assertFalse(addedItems.isEmpty(), "No hay productos visibles");
 
         verificarItemsEnCarrito(addedItems, products);
     }
 
+    @Story("Eliminar productos del carrito")
+    @Description("""
+        TC011 - Eliminar productos del carrito
+        Precondición: Producto añadido previamente
+        Pasos:
+        1. Acceder al carrito
+        2. Clic en “Remove” en un producto
+        Datos: -
+        Resultado esperado: Producto eliminado del listado
+        """)
     @Test
     @DisplayName("TC011 - Eliminar productos del carrito")
     void TC011_VerificarProdctosEliminados() {
 
         final int eliminado = 1;
 
-        //PRECONDICION: Items añadidos al carrito
-
         List<ProductItem> addedItems = inventoryPage.addItemsToCart(3);
 
-        //STEP 1. Clic en icono del carrito
-
         inventoryPage.navigateToCart();
-
-        //STEP 2. Clic en “Remove” en un producto
 
         cartPage.removeItemFromCart(eliminado);
 
@@ -91,13 +108,10 @@ public class CartTests extends BaseTest {
 
         addedItems.remove(eliminado);
 
-        //SPECTED_RESULT: Producto eliminado del listado
-
         assertFalse(addedItems.isEmpty(), "No hay productos visibles");
 
         verificarItemsEnCarrito(addedItems, products);
     }
-
 
     private void verificarItemsEnCarrito(List<ProductItem> expectedItems, List<CartItem> actualItems) {
         assertEquals(expectedItems.size(), actualItems.size(), "El número de productos no coincide");
