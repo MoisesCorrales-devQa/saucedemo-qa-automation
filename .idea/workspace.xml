@@ -5,16 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f834490f-126b-4455-9526-19e4d3231e17" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/model/CartItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/CartPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/CartTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/checkout/CheckOutCompletePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/checkout/CheckoutInformationPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/checkout/CheckoutOverviewPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/tests/CheckOutTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/test-cases.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/test-cases.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/test-traceability.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/test-traceability.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/model/ProductItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/model/ProductItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/InventoryPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/InventoryPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/InventoryTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/InventoryTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/CartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/CartPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +56,7 @@
     "JUnit.CartTests.TC010_visibilidadCamposCarrito.executor": "Run",
     "JUnit.CartTests.TC011_VerificarProdctosEliminados.executor": "Run",
     "JUnit.CartTests.executor": "Run",
+    "JUnit.CheckOutTests.TC012_flujo_de_compra_completo.executor": "Run",
     "JUnit.InventoryTests.TC006_visibilidadCamposItems.executor": "Run",
     "JUnit.InventoryTests.TC007_1_ordenamientoProductosA_Z.executor": "Run",
     "JUnit.InventoryTests.TC007_2_ordenamientoProductosZ_A.executor": "Run",
@@ -85,22 +84,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.CartTests.TC011_VerificarProdctosEliminados">
-    <configuration name="CartTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="saucedemo-qa-automation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.CartTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.CheckOutTests.TC012_flujo_de_compra_completo">
     <configuration name="CartTests.TC009_cantidadIconoCarrito" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="saucedemo-qa-automation" />
       <extension name="coverage">
@@ -165,13 +149,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CheckOutTests.TC012_flujo_de_compra_completo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="saucedemo-qa-automation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.CheckOutTests" />
+      <option name="METHOD_NAME" value="TC012_flujo_de_compra_completo" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CheckOutTests.TC012_flujo_de_compra_completo" />
         <item itemvalue="JUnit.CartTests.TC011_VerificarProdctosEliminados" />
         <item itemvalue="JUnit.CartTests.TC010_VerificarProdcutosCarrito" />
         <item itemvalue="JUnit.CartTests.TC010_visibilidadCamposCarrito" />
         <item itemvalue="JUnit.CartTests.TC009_cantidadIconoCarrito" />
-        <item itemvalue="JUnit.CartTests" />
       </list>
     </recent_temporary>
   </component>
@@ -194,7 +194,7 @@
       <workItem from="1751302988042" duration="734000" />
       <workItem from="1751303731900" duration="1437000" />
       <workItem from="1751305244105" duration="9444000" />
-      <workItem from="1751374633500" duration="6285000" />
+      <workItem from="1751374633500" duration="10491000" />
     </task>
     <servers />
   </component>

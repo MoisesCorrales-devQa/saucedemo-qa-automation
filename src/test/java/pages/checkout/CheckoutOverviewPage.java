@@ -1,8 +1,6 @@
-package pages;
+package pages.checkout;
 
-import com.google.errorprone.annotations.OverridingMethodsMustInvokeSuper;
 import model.CartItem;
-import model.ProductItem;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,10 +9,10 @@ import utils.VisualHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CartPage {
+public class CheckoutOverviewPage {
 
     private WebDriver driver;
-    public CartPage(WebDriver driver) {
+    public CheckoutOverviewPage(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -25,10 +23,12 @@ public class CartPage {
     private final By cartItemPrice = By.className("inventory_item_price");
     private final By cartItemQty = By.className("cart_quantity");
 
-    private final By button = By.cssSelector("button");
-    private final By checkout = By.id("checkout");
 
-    public List<CartItem> getCartItems() {
+    private final By finishButtonSelector = By.id("finish");
+
+
+
+    public List<CartItem> getOverviewItems() {
         List<WebElement> items = driver.findElements(cartItem);
         List<CartItem> cartItems = new ArrayList<>();
 
@@ -48,24 +48,12 @@ public class CartPage {
         return cartItems;
     }
 
-    public void removeItemFromCart(int position) {
-        List<WebElement> items = driver.findElements(cartItem);
-        WebElement item = items.get(position);
+    public void clickFinishButton() {
+        WebElement icon =  driver.findElement(finishButtonSelector);
 
-        VisualHelper.highlight(driver, item);
-
-        WebElement button = item.findElement(this.button);
-        button.click();
-
+        VisualHelper.highlight(driver, icon);
+        icon.click();
         VisualHelper.pause(500);
     }
 
-    public void startCheckoutProcess() {
-        WebElement checkout = driver.findElement(this.checkout);
-        VisualHelper.highlight(driver, checkout);
-
-        checkout.click();
-
-        VisualHelper.pause(500);
-    }
 }
