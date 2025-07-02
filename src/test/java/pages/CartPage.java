@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.ActionsHelper;
 import utils.VisualHelper;
 
 import java.time.Duration;
@@ -32,6 +33,9 @@ public class CartPage {
 
     private final By button = By.cssSelector("button");
     private final By checkout = By.id("checkout");
+
+    private final By goToInventory = By.cssSelector("[data-test='continue-shopping']");
+
 
     public List<CartItem> getCartItems() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -70,6 +74,12 @@ public class CartPage {
         checkoutBtn.click();
 
         VisualHelper.pause(500);
+    }
+
+    public void clickOnGoToInventory(){
+
+        ActionsHelper.click(driver, this.goToInventory);
+
     }
 
     public boolean isTitleVisible() {

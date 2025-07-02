@@ -1,11 +1,11 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.ActionsHelper;
 import utils.VisualHelper;
 
 import java.time.Duration;
@@ -75,5 +75,13 @@ public class LoginPage {
         return title.getText().equals(errorText);
     }
 
+    public boolean isTittleDisplayed() {
+
+        boolean isUserInputVisible = ActionsHelper.isVisible(driver, usernameInput,10);
+        boolean isPasswdInputVisible = ActionsHelper.isVisible(driver, passwordInput,10);
+        boolean isLoginButtonVisible = ActionsHelper.isVisible(driver, loginButton,10);
+
+        return isUserInputVisible && isPasswdInputVisible && isLoginButtonVisible;
+    }
 }
 

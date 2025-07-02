@@ -36,7 +36,7 @@ public class LoginTests extends BaseTest {
     void TC001_loginCorrecto() {
         loginPage.loginAs("standard_user", "secret_sauce");
         assertTrue(driver.getCurrentUrl().contains("inventory"), "El login no redirige correctamente");
-        assertTrue(inventoryPage.isTitleVisible(), "El título 'Products' no está visible o es incorrecto");
+        assertTrue(inventoryPage.isTitleDisplayed(), "El título 'Products' no está visible o es incorrecto");
     }
 
     @Story("Login inválido")

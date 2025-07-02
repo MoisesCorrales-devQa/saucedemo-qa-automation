@@ -9,7 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.CartPage;
 import pages.InventoryPage;
-import pages.ItemDetailPage;
+import pages.ProductDetailPage;
 import pages.LoginPage;
 import pages.checkout.CheckOutCompletePage;
 import pages.checkout.CheckoutInformationPage;
@@ -27,7 +27,7 @@ public class NavigationTests extends BaseTest {
     private CheckoutInformationPage checkoutInformationPage;
     private CheckoutOverviewPage checkoutOverviewPage;
     private CheckOutCompletePage checkoutCompletePage;
-    private ItemDetailPage itemDetailPage;
+    private ProductDetailPage productDetailPage;
 
     @BeforeEach
     void setUp() {
@@ -37,7 +37,7 @@ public class NavigationTests extends BaseTest {
         checkoutInformationPage = new CheckoutInformationPage(driver);
         checkoutOverviewPage = new CheckoutOverviewPage(driver);
         checkoutCompletePage = new CheckOutCompletePage(driver);
-        itemDetailPage = new ItemDetailPage(driver);
+        productDetailPage = new ProductDetailPage(driver);
 
         loginPage.loginAs("standard_user", "secret_sauce");
     }
@@ -71,10 +71,16 @@ public class NavigationTests extends BaseTest {
         Datos: -
         Resultado esperado: Usuario vuelve a la página de inventario
         """)
-    //@Test
+    @Test
     @DisplayName("TC021 - Volver al inventario desde el carrito")
     void TC021_volverInventarioDesdeCarrito() {
 
+        inventoryPage.navigateToCart();
+
+        cartPage.clickOnGoToInventory();
+
+        assertTrue(driver.getCurrentUrl().contains("inventory"), "No se redirigió a la pantalla de productos");
+        assertTrue(inventoryPage.isTitleDisplayed(), "No se muestra la pantalla de productos correctamente");
     }
 
     @Story("Navegar a la pantalla de detalle de un producto (clic en nombre)")
@@ -91,7 +97,7 @@ public class NavigationTests extends BaseTest {
     void TC022_1_navegarDetallePorNombre() {
         String itemName = inventoryPage.navigateToItemFromImage(0);
 
-        boolean tituloCorrecto = itemDetailPage.checkItemTitle(itemName);
+        boolean tituloCorrecto = productDetailPage.checkItemTitle(itemName);
 
         assertTrue(driver.getCurrentUrl().contains("item"), "No se redirigió al detalle del item");
         assertTrue(tituloCorrecto, "El título del carrito no es visible");
@@ -111,10 +117,26 @@ public class NavigationTests extends BaseTest {
     void TC022_2_navegarDetallePorImagen() {
         String itemName = inventoryPage.navigateToItemFromTittle(0);
 
-        boolean tituloCorrecto = itemDetailPage.checkItemTitle(itemName);
+        boolean tituloCorrecto = productDetailPage.checkItemTitle(itemName);
 
         assertTrue(driver.getCurrentUrl().contains("item"), "No se redirigió al detalle del item");
         assertTrue(tituloCorrecto, "El título del carrito no es visible");
     }
 
+    @Story("Volver al inventario desde la pantalla de detalle")
+    @Description("""
+        TC023 - Volver al inventario desde la pantalla de detalle
+        Precondición: Usuario en detalle de producto
+        Pasos:
+        1. Clic en botón "Back to products"
+        Resultado esperado: Usuario vuelve a inventario
+        """)
+    @Test
+    @DisplayName("TC023 - Volver al inventario desde la pantalla de detalle")
+    void TC023_volverAInventarioDesdeDetalle() {
+
+        inventoryPage.navigateToItemFromImage(0);
+        productDetailPage.clickBackToProducts();
+        assertTrue(inventoryPage.isTitleDisplayed(), "El usuario no vuelve correctamente a la página de inventario");
+    }
 }

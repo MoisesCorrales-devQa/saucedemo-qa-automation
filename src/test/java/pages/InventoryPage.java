@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.ActionsHelper;
 import utils.VisualHelper;
 
 import java.time.Duration;
@@ -35,11 +36,12 @@ public class InventoryPage {
     private final By badge = By.cssSelector("[data-test='shopping-cart-badge']");
     private final By cartIcon = By.cssSelector("[data-test='shopping-cart-link']");
 
-    public boolean isTitleVisible() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement title = wait.until(ExpectedConditions.visibilityOfElementLocated(inventoryTittle));
-        return title.isDisplayed() && title.getText().equals("Products");
+    public boolean isTitleDisplayed() {
+
+        String titleText = "Products";
+        return ActionsHelper.isVisibleWithText(driver, inventoryTittle, 10, titleText);
     }
+
 
     public void selectOrder(String criterioValor) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -98,11 +100,17 @@ public class InventoryPage {
         return itemCount == amount;
     }
 
+    public boolean isCartIconBadgeVisible() {
+        return ActionsHelper.isVisible(driver, this.badge,3);
+    }
+
     public void navigateToCart() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement icon = wait.until(ExpectedConditions.elementToBeClickable(cartIcon));
         VisualHelper.highlight(driver, icon);
         icon.click();
+
+        VisualHelper.pause(1000);
     }
 
     private String navigateToItem(int position, By clickableSelector) {
@@ -128,5 +136,7 @@ public class InventoryPage {
         return navigateToItem(position, itemName);
     }
 
-
+    public boolean isAtInitialState() {
+        return true;
+    }
 }
