@@ -93,11 +93,7 @@ public class InventoryPage {
     }
 
     public boolean checkCartIconBadge(int amount) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement badge = wait.until(ExpectedConditions.visibilityOfElementLocated(this.badge));
-        String badgeText = badge.getText();
-        int itemCount = Integer.parseInt(badgeText);
-        return itemCount == amount;
+        return ActionsHelper.isVisibleWithText(driver, this.badge, 10, String.valueOf(amount));
     }
 
     public boolean isCartIconBadgeVisible() {
@@ -105,12 +101,7 @@ public class InventoryPage {
     }
 
     public void navigateToCart() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement icon = wait.until(ExpectedConditions.elementToBeClickable(cartIcon));
-        VisualHelper.highlight(driver, icon);
-        icon.click();
-
-        VisualHelper.pause(1000);
+        ActionsHelper.click(driver, cartIcon);
     }
 
     private String navigateToItem(int position, By clickableSelector) {
@@ -121,7 +112,6 @@ public class InventoryPage {
         String name = item.findElement(itemName).getText();
 
         VisualHelper.pause(500);
-
         clickableElement.click();
 
         VisualHelper.pause(500);
@@ -134,9 +124,5 @@ public class InventoryPage {
 
     public String navigateToItemFromTittle(int position) {
         return navigateToItem(position, itemName);
-    }
-
-    public boolean isAtInitialState() {
-        return true;
     }
 }

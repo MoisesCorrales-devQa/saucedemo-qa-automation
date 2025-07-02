@@ -25,7 +25,6 @@ public class InventoryTests extends BaseTest {
     private InventoryPage inventoryPage;
 
     //Strings
-
     private final String AZ = "az";
     private final String ZA = "za";
     private final String ASCENDENTE = "lohi";

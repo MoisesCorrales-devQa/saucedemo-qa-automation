@@ -1,8 +1,6 @@
 package pages;
 
-import com.google.errorprone.annotations.OverridingMethodsMustInvokeSuper;
 import model.CartItem;
-import model.ProductItem;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -68,23 +66,16 @@ public class CartPage {
     }
 
     public void startCheckoutProcess() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement checkoutBtn = wait.until(ExpectedConditions.elementToBeClickable(this.checkout));
-        VisualHelper.highlight(driver, checkoutBtn);
-        checkoutBtn.click();
-
-        VisualHelper.pause(500);
+        ActionsHelper.click(driver, checkout);
     }
 
     public void clickOnGoToInventory(){
-
         ActionsHelper.click(driver, this.goToInventory);
-
     }
 
-    public boolean isTitleVisible() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement title = wait.until(ExpectedConditions.visibilityOfElementLocated(cartTitle));
-        return title.isDisplayed() && title.getText().equals("Your Cart");
+    public boolean isTitleDisplayed() {
+        String titleText = "Your Cart";
+
+        return ActionsHelper.isVisibleWithText(driver, cartTitle, 10, titleText);
     }
 }

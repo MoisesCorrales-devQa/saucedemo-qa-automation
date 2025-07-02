@@ -2,16 +2,8 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.ActionsHelper;
 import utils.VisualHelper;
-
-import java.time.Duration;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LoginPage {
 
@@ -34,45 +26,29 @@ public class LoginPage {
     }
 
     public void loginAs(String username, String password) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        ActionsHelper.sendKeys(driver, usernameInput, username, 10);
 
-        WebElement userField = wait.until(ExpectedConditions.visibilityOfElementLocated(usernameInput));
-        VisualHelper.highlight(driver, userField);
-        userField.sendKeys(username);
-        VisualHelper.pause(500);
+        ActionsHelper.sendKeys(driver, passwordInput, password, 10);
 
-        WebElement passField = wait.until(ExpectedConditions.visibilityOfElementLocated(passwordInput));
-        VisualHelper.highlight(driver, passField);
-        passField.sendKeys(password);
-        VisualHelper.pause(500);
-
-        WebElement loginBtn = wait.until(ExpectedConditions.elementToBeClickable(loginButton));
-        VisualHelper.highlight(driver, loginBtn);
-        loginBtn.click();
+        ActionsHelper.click(driver, loginButton);
 
         VisualHelper.pause(1000); // espera tras login
     }
 
     public boolean isInvalidUserErrorVisible() {
-        return isErrorTextVisible(INVALID_USER);
+        return ActionsHelper.isVisibleWithText(driver, errorMessage, 10, INVALID_USER);
     }
 
     public boolean isLockedUserErrorVisible() {
-        return isErrorTextVisible(LOCKED_USER);
+        return ActionsHelper.isVisibleWithText(driver, errorMessage, 10, LOCKED_USER);
     }
 
     public boolean isNoUserErrorVisible() {
-        return isErrorTextVisible(NO_USER);
+        return ActionsHelper.isVisibleWithText(driver, errorMessage, 10, NO_USER);
     }
 
     public boolean isNoPsswdErrorVisible() {
-        return isErrorTextVisible(NO_PSSWD);
-    }
-
-    public boolean isErrorTextVisible(String errorText) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        WebElement title = wait.until(ExpectedConditions.visibilityOfElementLocated(errorMessage));
-        return title.getText().equals(errorText);
+        return ActionsHelper.isVisibleWithText(driver, errorMessage, 10, NO_PSSWD);
     }
 
     public boolean isTittleDisplayed() {

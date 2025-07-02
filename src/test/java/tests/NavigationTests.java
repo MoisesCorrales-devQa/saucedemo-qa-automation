@@ -24,9 +24,6 @@ public class NavigationTests extends BaseTest {
     private LoginPage loginPage;
     private InventoryPage inventoryPage;
     private CartPage cartPage;
-    private CheckoutInformationPage checkoutInformationPage;
-    private CheckoutOverviewPage checkoutOverviewPage;
-    private CheckOutCompletePage checkoutCompletePage;
     private ProductDetailPage productDetailPage;
 
     @BeforeEach
@@ -34,9 +31,6 @@ public class NavigationTests extends BaseTest {
         loginPage = new LoginPage(driver);
         inventoryPage = new InventoryPage(driver);
         cartPage = new CartPage(driver);
-        checkoutInformationPage = new CheckoutInformationPage(driver);
-        checkoutOverviewPage = new CheckoutOverviewPage(driver);
-        checkoutCompletePage = new CheckOutCompletePage(driver);
         productDetailPage = new ProductDetailPage(driver);
 
         loginPage.loginAs("standard_user", "secret_sauce");
@@ -59,7 +53,7 @@ public class NavigationTests extends BaseTest {
         inventoryPage.navigateToCart();
 
         assertTrue(driver.getCurrentUrl().contains("cart"), "No se redirigió al carrito");
-        assertTrue(cartPage.isTitleVisible(), "El título del carrito no es visible");
+        assertTrue(cartPage.isTitleDisplayed(), "El título del carrito no es visible");
     }
 
     @Story("Volver al inventario desde el carrito")

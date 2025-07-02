@@ -46,4 +46,13 @@ public class ActionsHelper {
         }
     }
 
+    public static void sendKeys(WebDriver driver, By locator, String text, int timeoutSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, java.time.Duration.ofSeconds(timeoutSeconds));
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        VisualHelper.highlight(driver, element);
+        element.clear();
+        element.sendKeys(text);
+        VisualHelper.pause(500);
+    }
+
 }
