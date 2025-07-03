@@ -76,6 +76,6 @@ public class CartPage {
     public boolean isTitleDisplayed() {
         String titleText = "Your Cart";
 
-        return ActionsHelper.isVisibleWithText(driver, cartTitle, 10, titleText);
+        return ActionsHelper.isVisibleWithText(driver, cartTitle, titleText, 10);
     }
 }

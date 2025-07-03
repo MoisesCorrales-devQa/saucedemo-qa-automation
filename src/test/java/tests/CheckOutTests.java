@@ -4,6 +4,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import model.CartItem;
 import model.ProductItem;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -14,6 +15,8 @@ import pages.LoginPage;
 import pages.checkout.CheckOutCompletePage;
 import pages.checkout.CheckoutInformationPage;
 import pages.checkout.CheckoutOverviewPage;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -45,6 +48,7 @@ public class CheckOutTests extends BaseTest {
         checkoutCompletePage = new CheckOutCompletePage(driver);
 
         loginPage.loginAs("standard_user", "secret_sauce");
+
     }
 
     @Story("Flujo de compra completo (E2E)")
@@ -63,8 +67,7 @@ public class CheckOutTests extends BaseTest {
     @DisplayName("TC012 - Flujo de compra completo (E2E)")
     void TC012_flujo_de_compra_completo() {
 
-        ProductItem producto = inventoryPage.addItemsToCart(1).get(0);
-
+        inventoryPage.addItemsToCart(1);
         inventoryPage.navigateToCart();
 
         cartPage.startCheckoutProcess();
@@ -80,36 +83,82 @@ public class CheckOutTests extends BaseTest {
 
     @Story("Validación de campos requeridos en checkout")
     @Description("""
-        TC013 - Validación de campos requeridos en checkout
-        Precondición: Producto en el carrito
-        Pasos:
-        1. Iniciar checkout
-        2. Dejar campos vacíos
-        3. Clic en continuar
-        Datos: (vacíos)
-        Resultado esperado: Mensajes de error visibles por campo
-        """)
-    //@Test
-    @DisplayName("TC013 - Validación de campos requeridos en checkout")
-    void TC013_validacionCamposCheckout() {
-        // Implementación de la prueba
+    TC013.1 - Validación campo requerido: Nombre
+    Precondición: Producto en el carrito
+    Pasos:
+    1. Iniciar checkout
+    2. Dejar campo 'Nombre' vacío
+    3. Completar Apellido y Código Postal
+    4. Clic en continuar
+    Datos: Nombre vacío, Apellido válido, Código Postal válido
+    Resultado esperado: Mensaje de error visible en campo 'Nombre'
+    """)
+    @Test
+    @DisplayName("TC013.1 - Validación campo requerido: Nombre")
+    void TC013_1_validacionCampoNombre() {
+        inventoryPage.addItemsToCart(1);
+        inventoryPage.navigateToCart();
+
+        cartPage.startCheckoutProcess();
+
+        checkoutInformationPage.clickContinueButton();
+
+        checkoutInformationPage.checkNameErrorMessage();
+
     }
 
-    @Story("Navegación entre pasos de checkout")
+    @Story("Validación de campos requeridos en checkout")
     @Description("""
-        TC014 - Navegación entre pasos de checkout
-        Precondición: Producto en el carrito
-        Pasos:
-        1. Iniciar checkout
-        2. Continuar
-        3. Volver al carrito / atrás
-        Datos: -
-        Resultado esperado: El sistema navega correctamente sin errores
-        """)
-    //@Test
-    @DisplayName("TC014 - Navegación entre pasos de checkout")
-    void TC014_navegacionPasosCheckout() {
-        // Implementación de la prueba
+    TC013.2 - Validación campo requerido: Apellido
+    Precondición: Producto en el carrito
+    Pasos:
+    1. Iniciar checkout
+    2. Dejar campo 'Apellido' vacío
+    3. Completar Nombre y Código Postal
+    4. Clic en continuar
+    Datos: Nombre válido, Apellido vacío, Código Postal válido
+    Resultado esperado: Mensaje de error visible en campo 'Apellido'
+    """)
+    @Test
+    @DisplayName("TC013.2 - Validación campo requerido: Apellido")
+    void TC013_2_validacionCampoApellido() {
+        inventoryPage.addItemsToCart(1);
+        inventoryPage.navigateToCart();
+
+        cartPage.startCheckoutProcess();
+
+        checkoutInformationPage.fillCheckoutForm(name, "", "");
+
+        checkoutInformationPage.clickContinueButton();
+
+        checkoutInformationPage.checkLastNameErrorMessage();
+    }
+
+    @Story("Validación de campos requeridos en checkout")
+    @Description("""
+    TC013.3 - Validación campo requerido: Código Postal
+    Precondición: Producto en el carrito
+    Pasos:
+    1. Iniciar checkout
+    2. Dejar campo 'Código Postal' vacío
+    3. Completar Nombre y Apellido
+    4. Clic en continuar
+    Datos: Nombre válido, Apellido válido, Código Postal vacío
+    Resultado esperado: Mensaje de error visible en campo 'Código Postal'
+    """)
+    @Test
+    @DisplayName("TC013.3 - Validación campo requerido: Código Postal")
+    void TC013_3_validacionCampoCodigoPostal() {
+        inventoryPage.addItemsToCart(1);
+        inventoryPage.navigateToCart();
+
+        cartPage.startCheckoutProcess();
+
+        checkoutInformationPage.fillCheckoutForm(name, lastName, "");
+
+        checkoutInformationPage.clickContinueButton();
+
+        checkoutInformationPage.checkZipCodeErrorMessage();
     }
 
     @Story("Verificar productos en Checkout Overview")
@@ -123,11 +172,23 @@ public class CheckOutTests extends BaseTest {
         Datos: Varios ítems
         Resultado esperado: Todos los productos añadidos aparecen con nombre y precio correcto
         """)
-
-    //@Test
+    @Test
     @DisplayName("TC015 - Verificar productos en Checkout Overview")
     void TC015_verificarProductosCheckoutOverview() {
-        // Implementación de la prueba
+
+        List<ProductItem> addedProducts = inventoryPage.addItemsToCart(1);
+        inventoryPage.navigateToCart();
+
+        cartPage.startCheckoutProcess();
+
+        checkoutInformationPage.fillCheckoutForm(name, lastName, postCode);
+
+        checkoutInformationPage.clickContinueButton();
+
+        List<CartItem> overviewProducts = checkoutOverviewPage.getOverviewItems();
+
+        verificarItemsEnOverview(addedProducts, overviewProducts);
+
     }
 
     @Story("Verificar total con impuestos en Checkout Overview")
@@ -145,6 +206,21 @@ public class CheckOutTests extends BaseTest {
     @DisplayName("TC016 - Verificar total con impuestos en Checkout Overview")
     void TC016_verificarTotalCheckoutOverview() {
         // Implementación de la prueba
+    }
+
+    private void verificarItemsEnOverview(List<ProductItem> expectedItems, List<CartItem> actualItems) {
+        assertEquals(expectedItems.size(), actualItems.size(), "El número de productos no coincide");
+
+        for (int i = 0; i < actualItems.size(); i++) {
+            ProductItem expected = expectedItems.get(i);
+            CartItem actual = actualItems.get(i);
+
+            assertEquals(expected.getName(), actual.getName(), "El nombre no coincide");
+            assertEquals(expected.getDescription(), actual.getDescription(), "La descripción no coincide");
+            assertEquals(expected.getPrice(), actual.getPrice(), "El precio no coincide");
+            assertTrue(actual.getPrice().matches("\\$\\d+\\.\\d{2}"), "El precio no tiene el formato correcto: " + actual.getPrice());
+            assertEquals(1, actual.getQuantity(), "La cantidad esperada es 1");
+        }
     }
 
 }

@@ -29,6 +29,10 @@ public class DriverFactory {
                 prefs.put("profile.password_manager_leak_detection", false);
                 options.setExperimentalOption("prefs", prefs);
 
+                if (Boolean.parseBoolean(ConfigReader.get("minimize"))) {
+                    options.addArguments("--window-position=0,10000");
+                }
+
                 return new ChromeDriver(options);
         }
     }

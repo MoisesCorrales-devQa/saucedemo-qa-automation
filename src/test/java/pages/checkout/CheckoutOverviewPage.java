@@ -4,6 +4,7 @@ import model.CartItem;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import utils.ActionsHelper;
 import utils.VisualHelper;
 
 import java.util.ArrayList;
@@ -23,9 +24,8 @@ public class CheckoutOverviewPage {
     private final By cartItemPrice = By.className("inventory_item_price");
     private final By cartItemQty = By.className("cart_quantity");
 
-
     private final By finishButtonSelector = By.id("finish");
-
+    private final By cancelButtonSelector = By.id("cancel");
 
 
     public List<CartItem> getOverviewItems() {
@@ -49,11 +49,11 @@ public class CheckoutOverviewPage {
     }
 
     public void clickFinishButton() {
-        WebElement icon =  driver.findElement(finishButtonSelector);
+        ActionsHelper.click(driver, finishButtonSelector);
+    }
 
-        VisualHelper.highlight(driver, icon);
-        icon.click();
-        VisualHelper.pause(500);
+    public void clickCancelButton() {
+        ActionsHelper.click(driver, cancelButtonSelector);
     }
 
 }

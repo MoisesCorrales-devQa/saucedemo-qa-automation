@@ -25,6 +25,13 @@ public class NavigationTests extends BaseTest {
     private InventoryPage inventoryPage;
     private CartPage cartPage;
     private ProductDetailPage productDetailPage;
+    private CheckoutInformationPage checkoutInformationPage;
+    private CheckoutOverviewPage checkoutOverviewPage;
+
+    //TEST DATA
+    private final String name = "Name";
+    private final String lastName = "LastName";
+    private final String postCode = "12345";
 
     @BeforeEach
     void setUp() {
@@ -32,6 +39,8 @@ public class NavigationTests extends BaseTest {
         inventoryPage = new InventoryPage(driver);
         cartPage = new CartPage(driver);
         productDetailPage = new ProductDetailPage(driver);
+        checkoutInformationPage = new CheckoutInformationPage(driver);
+        checkoutOverviewPage = new CheckoutOverviewPage(driver);
 
         loginPage.loginAs("standard_user", "secret_sauce");
     }
@@ -94,7 +103,7 @@ public class NavigationTests extends BaseTest {
         boolean tituloCorrecto = productDetailPage.checkItemTitle(itemName);
 
         assertTrue(driver.getCurrentUrl().contains("item"), "No se redirigió al detalle del item");
-        assertTrue(tituloCorrecto, "El título del carrito no es visible");
+        assertTrue(tituloCorrecto, "El título del detalle del item no es el correcto");
     }
 
     @Story("Navegar a la pantalla de detalle de un producto (clic en imagen)")
@@ -114,7 +123,7 @@ public class NavigationTests extends BaseTest {
         boolean tituloCorrecto = productDetailPage.checkItemTitle(itemName);
 
         assertTrue(driver.getCurrentUrl().contains("item"), "No se redirigió al detalle del item");
-        assertTrue(tituloCorrecto, "El título del carrito no es visible");
+        assertTrue(tituloCorrecto, "El título del detalle del item no es el correcto");
     }
 
     @Story("Volver al inventario desde la pantalla de detalle")
@@ -133,4 +142,54 @@ public class NavigationTests extends BaseTest {
         productDetailPage.clickBackToProducts();
         assertTrue(inventoryPage.isTitleDisplayed(), "El usuario no vuelve correctamente a la página de inventario");
     }
+
+    @Story("Navegación / Checkout")
+    @Description("""
+    TC030 - Cancelar desde pantalla de información de checkout
+    Precondición: Producto en el carrito
+    Pasos:
+    1. Iniciar checkout
+    2. Clic en botón 'Cancel'
+    Resultado esperado: Redirección a la pantalla del carrito
+    """)
+    @Test
+    @DisplayName("TC030 - Cancelar desde pantalla de información")
+    void TC030_cancelarDesdePantallaInfo() {
+
+        inventoryPage.navigateToCart();
+        cartPage.startCheckoutProcess();
+        checkoutInformationPage.clickCancelButton();
+
+        assertTrue(driver.getCurrentUrl().contains("cart"), "No se redirigió al carrito");
+        assertTrue(cartPage.isTitleDisplayed(), "El título del carrito no es visible");
+    }
+
+    @Story("Navegación / Checkout")
+    @Description("""
+    TC031 - Cancelar desde pantalla de overview de checkout
+    Precondición: Producto en el carrito
+    Pasos:
+    1. Iniciar checkout
+    2. Completar datos
+    3. Continuar a overview
+    4. Clic en botón 'Cancel'
+    Resultado esperado: Redirección a la pantalla de inventario (Home)
+    """)
+    @Test
+    @DisplayName("TC031 - Cancelar desde pantalla de overview")
+    void TC031_cancelarDesdePantallaOverview() {
+
+        inventoryPage.navigateToCart();
+        cartPage.startCheckoutProcess();
+
+        checkoutInformationPage.fillCheckoutForm(name,lastName,postCode);
+
+        checkoutInformationPage.clickContinueButton();
+
+        checkoutOverviewPage.clickCancelButton();
+
+        assertTrue(driver.getCurrentUrl().contains("inventory"), "No se redirigió a la pantalla de productos");
+        assertTrue(inventoryPage.isTitleDisplayed(), "No se muestra la pantalla de productos correctamente");
+    }
+
 }

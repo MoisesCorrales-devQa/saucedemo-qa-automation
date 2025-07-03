@@ -14,10 +14,16 @@ public abstract class BaseTest {
     void launchBrowser() {
         String browser = ConfigReader.get("browser");
         String baseUrl = ConfigReader.get("baseUrl");
+        boolean minimize = Boolean.parseBoolean(ConfigReader.get("minimize"));
 
         driver = DriverFactory.createInstance(browser);
 
-        driver.manage().window().maximize();
+        if (minimize){
+            driver.manage().window().minimize();
+        } else {
+            driver.manage().window().maximize();
+        }
+
         driver.get(baseUrl);
 
         if (!environmentWritten) {

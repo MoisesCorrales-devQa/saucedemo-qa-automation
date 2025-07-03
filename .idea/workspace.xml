@@ -5,18 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f834490f-126b-4455-9526-19e4d3231e17" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/AboutPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/MenuPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/tests/MenuTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/test-cases.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/test-cases.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/test-traceability.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/test-traceability.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ActionsHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ActionsHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/DriverFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/DriverFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/AboutPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/AboutPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/CartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/CartPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/InventoryPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/InventoryPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/ItemDetailPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/ProductDetailPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/suites/SmokeTestSuite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/suites/SmokeTestSuite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/ProductDetailPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/ProductDetailPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/checkout/CheckoutInformationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/checkout/CheckoutInformationPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/checkout/CheckoutOverviewPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/checkout/CheckoutOverviewPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/CheckOutTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CheckOutTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/NavigationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/NavigationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,6 +65,10 @@
     "JUnit.CartTests.TC011_VerificarProdctosEliminados.executor": "Run",
     "JUnit.CartTests.executor": "Run",
     "JUnit.CheckOutTests.TC012_flujo_de_compra_completo.executor": "Run",
+    "JUnit.CheckOutTests.TC013_1_validacionCampoNombre.executor": "Run",
+    "JUnit.CheckOutTests.TC013_2_validacionCampoApellido.executor": "Run",
+    "JUnit.CheckOutTests.TC013_3_validacionCampoCodigoPostal.executor": "Run",
+    "JUnit.CheckOutTests.TC015_verificarProductosCheckoutOverview.executor": "Run",
     "JUnit.InventoryTests.TC006_visibilidadCamposItems.executor": "Run",
     "JUnit.InventoryTests.TC007_1_ordenamientoProductosA_Z.executor": "Run",
     "JUnit.InventoryTests.TC007_2_ordenamientoProductosZ_A.executor": "Run",
@@ -84,6 +91,7 @@
     "JUnit.NavigationTests.TC021_volverInventarioDesdeCarrito.executor": "Run",
     "JUnit.NavigationTests.TC022_2_navegarDetallePorImagen.executor": "Run",
     "JUnit.NavigationTests.TC023_volverAInventarioDesdeDetalle.executor": "Run",
+    "JUnit.NavigationTests.TC031_cancelarDesdePantallaOverview.executor": "Run",
     "JUnit.NavigationTests.executor": "Run",
     "JUnit.SmokeTestSuite.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
@@ -117,7 +125,7 @@
     </option>
   </component>
   <component name="RunManager" selected="JUnit.SmokeTestSuite">
-    <configuration name="MenuTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CheckOutTests.TC013_2_validacionCampoApellido" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="saucedemo-qa-automation" />
       <extension name="coverage">
         <pattern>
@@ -126,29 +134,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.MenuTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MenuTests.TC025_cerrarMenuLateral" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="saucedemo-qa-automation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.MenuTests" />
-      <option name="METHOD_NAME" value="TC025_cerrarMenuLateral" />
+      <option name="MAIN_CLASS_NAME" value="tests.CheckOutTests" />
+      <option name="METHOD_NAME" value="TC013_2_validacionCampoApellido" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MenuTests.TC026_navegarAllItems" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CheckOutTests.TC013_3_validacionCampoCodigoPostal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="saucedemo-qa-automation" />
       <extension name="coverage">
         <pattern>
@@ -157,14 +150,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.MenuTests" />
-      <option name="METHOD_NAME" value="TC026_navegarAllItems" />
+      <option name="MAIN_CLASS_NAME" value="tests.CheckOutTests" />
+      <option name="METHOD_NAME" value="TC013_3_validacionCampoCodigoPostal" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MenuTests.TC029_resetAppState" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CheckOutTests.TC015_verificarProductosCheckoutOverview" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="saucedemo-qa-automation" />
       <extension name="coverage">
         <pattern>
@@ -173,8 +166,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.MenuTests" />
-      <option name="METHOD_NAME" value="TC029_resetAppState" />
+      <option name="MAIN_CLASS_NAME" value="tests.CheckOutTests" />
+      <option name="METHOD_NAME" value="TC015_verificarProductosCheckoutOverview" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NavigationTests.TC031_cancelarDesdePantallaOverview" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="saucedemo-qa-automation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.NavigationTests" />
+      <option name="METHOD_NAME" value="TC031_cancelarDesdePantallaOverview" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -198,10 +207,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.SmokeTestSuite" />
-        <item itemvalue="JUnit.MenuTests" />
-        <item itemvalue="JUnit.MenuTests.TC025_cerrarMenuLateral" />
-        <item itemvalue="JUnit.MenuTests.TC026_navegarAllItems" />
-        <item itemvalue="JUnit.MenuTests.TC029_resetAppState" />
+        <item itemvalue="JUnit.NavigationTests.TC031_cancelarDesdePantallaOverview" />
+        <item itemvalue="JUnit.CheckOutTests.TC013_3_validacionCampoCodigoPostal" />
+        <item itemvalue="JUnit.CheckOutTests.TC015_verificarProductosCheckoutOverview" />
+        <item itemvalue="JUnit.CheckOutTests.TC013_2_validacionCampoApellido" />
       </list>
     </recent_temporary>
   </component>
@@ -233,7 +242,9 @@
       <workItem from="1751403774792" duration="4105000" />
       <workItem from="1751459783792" duration="268000" />
       <workItem from="1751460061539" duration="2666000" />
-      <workItem from="1751474826000" duration="3699000" />
+      <workItem from="1751474826000" duration="7854000" />
+      <workItem from="1751532358910" duration="685000" />
+      <workItem from="1751566477273" duration="7210000" />
     </task>
     <servers />
   </component>

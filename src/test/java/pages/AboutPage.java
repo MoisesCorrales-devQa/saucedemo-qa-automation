@@ -1,19 +1,9 @@
 package pages;
 
-import com.google.errorprone.annotations.OverridingMethodsMustInvokeSuper;
-import model.CartItem;
-import model.ProductItem;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.ActionsHelper;
-import utils.VisualHelper;
 
-import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
+import utils.ActionsHelper;
 
 public class AboutPage {
 
@@ -28,7 +18,7 @@ public class AboutPage {
     public boolean isTittleDisplayed() {
 
         String titleText = "Build apps users love with AI-driven insights";
-        return ActionsHelper.isVisibleWithText(driver, pageTitle, 5, titleText);
+        return ActionsHelper.isVisibleWithText(driver, pageTitle, titleText, 5);
 
     }
 

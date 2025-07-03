@@ -36,19 +36,19 @@ public class LoginPage {
     }
 
     public boolean isInvalidUserErrorVisible() {
-        return ActionsHelper.isVisibleWithText(driver, errorMessage, 10, INVALID_USER);
+        return ActionsHelper.isVisibleWithText(driver, errorMessage, INVALID_USER, 10);
     }
 
     public boolean isLockedUserErrorVisible() {
-        return ActionsHelper.isVisibleWithText(driver, errorMessage, 10, LOCKED_USER);
+        return ActionsHelper.isVisibleWithText(driver, errorMessage, LOCKED_USER, 10);
     }
 
     public boolean isNoUserErrorVisible() {
-        return ActionsHelper.isVisibleWithText(driver, errorMessage, 10, NO_USER);
+        return ActionsHelper.isVisibleWithText(driver, errorMessage, NO_USER, 10);
     }
 
     public boolean isNoPsswdErrorVisible() {
-        return ActionsHelper.isVisibleWithText(driver, errorMessage, 10, NO_PSSWD);
+        return ActionsHelper.isVisibleWithText(driver, errorMessage, NO_PSSWD, 10);
     }
 
     public boolean isTittleDisplayed() {

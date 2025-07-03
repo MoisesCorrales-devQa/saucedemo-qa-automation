@@ -35,7 +35,7 @@ public class ActionsHelper {
         }
     }
 
-    public static boolean isVisibleWithText(WebDriver driver, By locator, int timeoutSeconds, String expectedText) {
+    public static boolean isVisibleWithText(WebDriver driver, By locator, String expectedText, int timeoutSeconds) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutSeconds));
             WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));

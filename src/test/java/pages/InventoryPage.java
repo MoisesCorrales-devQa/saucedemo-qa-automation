@@ -39,7 +39,7 @@ public class InventoryPage {
     public boolean isTitleDisplayed() {
 
         String titleText = "Products";
-        return ActionsHelper.isVisibleWithText(driver, inventoryTittle, 10, titleText);
+        return ActionsHelper.isVisibleWithText(driver, inventoryTittle, titleText, 10);
     }
 
 
@@ -93,7 +93,7 @@ public class InventoryPage {
     }
 
     public boolean checkCartIconBadge(int amount) {
-        return ActionsHelper.isVisibleWithText(driver, this.badge, 10, String.valueOf(amount));
+        return ActionsHelper.isVisibleWithText(driver, this.badge, String.valueOf(amount), 10);
     }
 
     public boolean isCartIconBadgeVisible() {
