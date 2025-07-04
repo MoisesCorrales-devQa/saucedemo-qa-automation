@@ -5,22 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f834490f-126b-4455-9526-19e4d3231e17" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/test-cases.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/test-cases.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/test-traceability.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/test-traceability.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ActionsHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ActionsHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/DriverFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/DriverFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/AboutPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/AboutPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/CartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/CartPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/InventoryPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/InventoryPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/ProductDetailPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/ProductDetailPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/checkout/CheckoutInformationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/checkout/CheckoutInformationPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pages/checkout/CheckoutOverviewPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/checkout/CheckoutOverviewPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/util/ScreenshotOnFailureExtension.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/BaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/CheckOutTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CheckOutTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/NavigationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/NavigationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/LoginTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,62 +44,62 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.CartTests.TC009_cantidadIconoCarrito.executor": "Run",
-    "JUnit.CartTests.TC010_VerificarProdcutosCarrito.executor": "Run",
-    "JUnit.CartTests.TC010_visibilidadCamposCarrito.executor": "Run",
-    "JUnit.CartTests.TC011_VerificarProdctosEliminados.executor": "Run",
-    "JUnit.CartTests.executor": "Run",
-    "JUnit.CheckOutTests.TC012_flujo_de_compra_completo.executor": "Run",
-    "JUnit.CheckOutTests.TC013_1_validacionCampoNombre.executor": "Run",
-    "JUnit.CheckOutTests.TC013_2_validacionCampoApellido.executor": "Run",
-    "JUnit.CheckOutTests.TC013_3_validacionCampoCodigoPostal.executor": "Run",
-    "JUnit.CheckOutTests.TC015_verificarProductosCheckoutOverview.executor": "Run",
-    "JUnit.InventoryTests.TC006_visibilidadCamposItems.executor": "Run",
-    "JUnit.InventoryTests.TC007_1_ordenamientoProductosA_Z.executor": "Run",
-    "JUnit.InventoryTests.TC007_2_ordenamientoProductosZ_A.executor": "Run",
-    "JUnit.InventoryTests.TC008_1_ordenamientoProductosPrecioAscendente.executor": "Run",
-    "JUnit.InventoryTests.TC008_2_ordenamientoProductosPrecioDescendente.executor": "Run",
-    "JUnit.InventoryTests.executor": "Run",
-    "JUnit.LoginTests.TC001_loginCorrecto.executor": "Run",
-    "JUnit.LoginTests.TC001_loginIncorrecto.executor": "Run",
-    "JUnit.LoginTests.TC002_loginIncorrecto.executor": "Run",
-    "JUnit.LoginTests.TC003_loginIncorrecto.executor": "Run",
-    "JUnit.LoginTests.TC004_loginUsuarioVacio.executor": "Run",
-    "JUnit.LoginTests.TC005_loginContrasenyaVacia.executor": "Run",
-    "JUnit.LoginTests.executor": "Run",
-    "JUnit.MenuTests.TC024_accederMenuLateral.executor": "Run",
-    "JUnit.MenuTests.TC025_cerrarMenuLateral.executor": "Run",
-    "JUnit.MenuTests.TC026_navegarAllItems.executor": "Run",
-    "JUnit.MenuTests.TC029_resetAppState.executor": "Run",
-    "JUnit.MenuTests.executor": "Run",
-    "JUnit.NavigationTests.TC020_navegarCarritoDesdeInventario.executor": "Run",
-    "JUnit.NavigationTests.TC021_volverInventarioDesdeCarrito.executor": "Run",
-    "JUnit.NavigationTests.TC022_2_navegarDetallePorImagen.executor": "Run",
-    "JUnit.NavigationTests.TC023_volverAInventarioDesdeDetalle.executor": "Run",
-    "JUnit.NavigationTests.TC031_cancelarDesdePantallaOverview.executor": "Run",
-    "JUnit.NavigationTests.executor": "Run",
-    "JUnit.SmokeTestSuite.executor": "Run",
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "Maven.saucedemo-qa-automation [allure:serve].executor": "Run",
-    "Maven.saucedemo-qa-automation [clean,test...].executor": "Run",
-    "Maven.saucedemo-qa-automation [clean,test].executor": "Run",
-    "Maven.saucedemo-qa-automation [run,test].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Usuario/Desktop/Work/Projects/saucedemo-qa-automation",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.CartTests.TC009_cantidadIconoCarrito.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartTests.TC010_VerificarProdcutosCarrito.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartTests.TC010_visibilidadCamposCarrito.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartTests.TC011_VerificarProdctosEliminados.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CartTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CheckOutTests.TC012_flujo_de_compra_completo.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CheckOutTests.TC013_1_validacionCampoNombre.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CheckOutTests.TC013_2_validacionCampoApellido.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CheckOutTests.TC013_3_validacionCampoCodigoPostal.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CheckOutTests.TC015_verificarProductosCheckoutOverview.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.InventoryTests.TC006_visibilidadCamposItems.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.InventoryTests.TC007_1_ordenamientoProductosA_Z.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.InventoryTests.TC007_2_ordenamientoProductosZ_A.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.InventoryTests.TC008_1_ordenamientoProductosPrecioAscendente.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.InventoryTests.TC008_2_ordenamientoProductosPrecioDescendente.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.InventoryTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoginTests.TC001_loginCorrecto.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoginTests.TC001_loginIncorrecto.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoginTests.TC002_loginIncorrecto.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoginTests.TC003_loginIncorrecto.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoginTests.TC004_loginUsuarioVacio.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoginTests.TC005_loginContrasenyaVacia.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoginTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuTests.TC024_accederMenuLateral.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuTests.TC025_cerrarMenuLateral.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuTests.TC026_navegarAllItems.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuTests.TC029_resetAppState.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NavigationTests.TC020_navegarCarritoDesdeInventario.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NavigationTests.TC021_volverInventarioDesdeCarrito.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NavigationTests.TC022_2_navegarDetallePorImagen.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NavigationTests.TC023_volverAInventarioDesdeDetalle.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NavigationTests.TC031_cancelarDesdePantallaOverview.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.NavigationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SmokeTestSuite.executor&quot;: &quot;Run&quot;,
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.saucedemo-qa-automation [allure:serve].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.saucedemo-qa-automation [clean,test...].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.saucedemo-qa-automation [clean,test].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.saucedemo-qa-automation [run,test].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/Desktop/Work/Projects/saucedemo-qa-automation&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn run test" />
@@ -124,23 +111,7 @@
       <command value="allure serve target/allure-results" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SmokeTestSuite">
-    <configuration name="CheckOutTests.TC013_2_validacionCampoApellido" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="saucedemo-qa-automation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.CheckOutTests" />
-      <option name="METHOD_NAME" value="TC013_2_validacionCampoApellido" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.LoginTests.TC001_loginCorrecto">
     <configuration name="CheckOutTests.TC013_3_validacionCampoCodigoPostal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="saucedemo-qa-automation" />
       <extension name="coverage">
@@ -168,6 +139,22 @@
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.CheckOutTests" />
       <option name="METHOD_NAME" value="TC015_verificarProductosCheckoutOverview" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginTests.TC001_loginCorrecto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="saucedemo-qa-automation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.LoginTests" />
+      <option name="METHOD_NAME" value="TC001_loginCorrecto" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -206,11 +193,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LoginTests.TC001_loginCorrecto" />
         <item itemvalue="JUnit.SmokeTestSuite" />
         <item itemvalue="JUnit.NavigationTests.TC031_cancelarDesdePantallaOverview" />
         <item itemvalue="JUnit.CheckOutTests.TC013_3_validacionCampoCodigoPostal" />
         <item itemvalue="JUnit.CheckOutTests.TC015_verificarProductosCheckoutOverview" />
-        <item itemvalue="JUnit.CheckOutTests.TC013_2_validacionCampoApellido" />
       </list>
     </recent_temporary>
   </component>

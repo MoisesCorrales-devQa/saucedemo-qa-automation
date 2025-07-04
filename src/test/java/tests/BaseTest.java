@@ -1,10 +1,13 @@
 package tests;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 import utils.BrowserInfo;
 import utils.*;
+import util.ScreenshotOnFailureExtension;
 
+@ExtendWith(ScreenshotOnFailureExtension.class)
 public abstract class BaseTest {
 
     protected WebDriver driver;
@@ -17,6 +20,7 @@ public abstract class BaseTest {
         boolean minimize = Boolean.parseBoolean(ConfigReader.get("minimize"));
 
         driver = DriverFactory.createInstance(browser);
+        ScreenshotOnFailureExtension.driver = driver;
 
         if (minimize){
             driver.manage().window().minimize();
