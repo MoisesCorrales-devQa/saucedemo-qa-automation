@@ -202,10 +202,34 @@ public class CheckOutTests extends BaseTest {
         Datos: Varios ítems
         Resultado esperado: El subtotal es la suma de precios; el impuesto es fijo (ej. $2.40); el total es correcto
         """)
-    //@Test
+    @Test
     @DisplayName("TC016 - Verificar total con impuestos en Checkout Overview")
     void TC016_verificarTotalCheckoutOverview() {
-        // Implementación de la prueba
+
+        List<ProductItem> addedProducts =  inventoryPage.addItemsToCart(3);
+
+        inventoryPage.navigateToCart();
+
+        cartPage.startCheckoutProcess();
+
+        checkoutInformationPage.fillCheckoutForm(name, lastName, postCode);
+
+        checkoutInformationPage.clickContinueButton();
+
+        double productPrices = 0;
+
+        for (ProductItem product : addedProducts){
+            String formattedValue = product.getPrice().replace("$", "");
+
+            double precio = Double.parseDouble(formattedValue);
+
+            productPrices += precio;
+        }
+
+        boolean valdiatePrices = checkoutInformationPage.checkPriceWithTaxes(productPrices);
+
+        assertTrue(valdiatePrices, "Los precios no se calculan o muestran correctamente");
+
     }
 
     private void verificarItemsEnOverview(List<ProductItem> expectedItems, List<CartItem> actualItems) {

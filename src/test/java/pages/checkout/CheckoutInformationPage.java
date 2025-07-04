@@ -1,8 +1,14 @@
 package pages.checkout;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.ActionsHelper;
+
+import java.time.Duration;
 
 public class CheckoutInformationPage {
 
@@ -19,7 +25,9 @@ public class CheckoutInformationPage {
     private final By cancelButton = By.id("cancel");
 
     private final By errorSelector = By.cssSelector("input[data-test='postalCode']");
-
+    private final By subtotalSelector = By.cssSelector(".summary_subtotal_label[data-test='subtotal-label']");
+    private final By taxSelector = By.cssSelector(".summary_tax_label[data-test='tax-label']");
+    private final By totalPriceSelector = By.cssSelector(".summary_total_label[data-test='total-label']");
 
 
     //CONSTANTS
@@ -54,4 +62,28 @@ public class CheckoutInformationPage {
         ActionsHelper.click(driver, cancelButton);
     }
 
+    public boolean checkPriceWithTaxes(double productsPrice) {
+
+        double price = extractDoublePrice(subtotalSelector,"Item total: $");
+        double tax = extractDoublePrice(taxSelector,"Tax: $");
+        double total = extractDoublePrice(totalPriceSelector,"Total: $");
+
+        boolean validateSubtotal = productsPrice == price;
+        boolean validateTotal = price + tax == total;
+
+        return validateSubtotal && validateTotal;
+
+    }
+
+    private double extractDoublePrice(By selector, String replace) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(selector));
+
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+
+        String textValue = element.getText();
+        String formattedValue = textValue.replace(replace, "");
+
+        return Double.parseDouble(formattedValue);
+    }
 }
