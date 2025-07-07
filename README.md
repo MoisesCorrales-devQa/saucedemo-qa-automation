@@ -18,23 +18,6 @@ This project is an automated test suite for SauceDemo, created to showcase my sk
 
 ---
 
-## 🗂️ Estructura del Proyecto
-
-saucedemo-qa-automation/
-├── docs/                  # 📄 Documentación técnica del proyecto
-├── src/
-│   ├── main/
-│   │   └── java/          # (vacío, este proyecto no tiene lógica en main)
-│   └── test/
-│       └── java/
-│           ├── pages/     # Clases de Page Object Model
-│           ├── suites/    # Agrupaciones de pruebas (futuro)
-│           └── tests/     # Clases de test organizadas por funcionalidad
-├── pom.xml                # Configuración de Maven
-└── README.md              # Este archivo
-
----
-
 ## ✅ Casos de Prueba Cubiertos
 
 La suite actual cubre las siguientes funcionalidades principales del sitio SauceDemo:
